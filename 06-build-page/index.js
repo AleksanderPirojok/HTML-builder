@@ -4,6 +4,7 @@ const { mkdir, readdir, copyFile /* unlink */ } = require('fs/promises');
 
 const distPath = path.join(__dirname, 'project-dist');
 const assetsPath = path.join(__dirname, 'assets');
+const newAssetsPath = path.join(distPath, 'assets');
 const componentsPath = path.join(__dirname, 'components');
 const templatePath = path.join(__dirname, 'template.html');
 const indexHtmlPath = path.join(distPath, 'index.html');
@@ -95,5 +96,5 @@ async function modifyTemplate() {
 
 // body
 mergeStyles();
-copyDir(assetsPath, distPath);
+copyDir(assetsPath, newAssetsPath);
 modifyTemplate();
